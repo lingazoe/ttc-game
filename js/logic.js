@@ -69,6 +69,7 @@ class logic {
         return this.#data.getStationNameScrambled(String(this.#order[this.#currentStation]));
 
     }
+    
     isValid(guess) {
 
         if (!input || input.trim().length === 0) return false;

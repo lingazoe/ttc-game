@@ -45,6 +45,8 @@ async function start() {
 
         const userGuess = inputDisplay.value;
 
+        gameLogic.isValid(userGuess);
+
         textDisplay.textContent = userGuess;
     });
 }
