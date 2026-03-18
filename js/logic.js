@@ -14,6 +14,7 @@ class logic {
 
         this.#order = this.#data.getOrder;
         this.#currentStation = "1";
+        this.#pattern = /[^a-zA-Z0-9\s\-\.\']/g;
     }
 
     //if station was guessed right or station was skipped;
@@ -69,12 +70,12 @@ class logic {
         return this.#data.getStationNameScrambled(String(this.#order[this.#currentStation]));
 
     }
-    
-    isValid(guess) {
+
+    isValid(input) {
 
         if (!input || input.trim().length === 0) return false;
         if (input.length > 40) return false;
-        if (this.#pattern.test(guess)) return false;
+        if (this.#pattern.test(input)) return false;
 
         return true;
     }
