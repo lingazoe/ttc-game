@@ -39,18 +39,28 @@ async function start() {
     
     */
 
+    console.log(gameLogic.getCurrentStationName());
+
     //--- CLICKING THE 'SUBMIT' BUTTON ---//
 
     submitBTN.addEventListener('click', () => {
 
         const userGuess = inputDisplay.value;
 
-        const result = gameLogic.isValid(userGuess);
+        const validGuess = gameLogic.isValid(userGuess);
 
-        if (result) console.log(true);
-        else console.log(false);
+        const result = gameLogic.ifCorrect(gameLogic.getCurrentStationName(), userGuess);
+
+        console.log(result);
+
+
+
+        //if (result) console.log(true);
+        //else console.log(false);
 
     });
+
+
 }
 
 //start the game

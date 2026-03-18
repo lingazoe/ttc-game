@@ -48,9 +48,13 @@ class logic {
     //user can try again if its wrong...
     ifCorrect(original, guess) {
 
-        let fixedGuess = guess.toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, "");
+        let fixedGuess = guess.toLowerCase().replace(/[.\'\-\s]/g, "");
+        let fixedOriginal = original.replace(/\s/g, "");
 
-        return original === fixedGuess;
+        console.log(fixedGuess);
+        console.log(fixedOriginal);
+
+        return fixedOriginal === fixedGuess;
     }
 
     //for other purposes
