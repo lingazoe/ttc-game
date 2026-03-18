@@ -39,6 +39,8 @@ async function start() {
     
     */
 
+    textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
+
     console.log(gameLogic.getCurrentStationName());
 
     //--- CLICKING THE 'SUBMIT' BUTTON ---//
@@ -53,7 +55,15 @@ async function start() {
 
         console.log(result);
 
+        if (result) {
 
+            inputDisplay.classList.add('green-border');
+        }
+
+        else {
+
+            inputDisplay.classList.add('red-border');
+        }
 
         //if (result) console.log(true);
         //else console.log(false);
