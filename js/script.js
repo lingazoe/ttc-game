@@ -7,9 +7,11 @@ const gameLogic = new logic(gameData);
 const textDisplay = document.querySelector(".scrambled");
 const inputDisplay = document.querySelector(".guess");
 const scoreDisplay = document.querySelector(".score-counter");
+const chancesDisplay = document.querySelector(".chances-counter");
 const answerBTN = document.querySelector("#answer");
 const nextBTN = document.querySelector("#next");
 const submitBTN = document.querySelector("#checking");
+
 
 //hide the [NEXT] button
 nextBTN.classList.add('hidden');
@@ -46,9 +48,22 @@ async function start() {
 
     submitBTN.addEventListener('click', () => {
 
+        if (!(gameLogic.checkChances())) {
+
+        textDisplay.textContent = gameLogic.getCurrentStationName();
+        answerBTN.classList.add('hidden');
+        nextBTN.classList.remove('hidden');
+
+        inputDisplay.classList.add('disable');
+        inputDisplay.classList.remove('green-border', 'red-border');
+
+        }
+
         const guess = inputDisplay.value;
 
         guessLogic(guess);
+
+        chancesDisplay.textContent = "chances: " + gameLogic.getChancesString();
     });
 
     answerBTN.addEventListener('click', () => {
@@ -71,8 +86,10 @@ async function start() {
         inputDisplay.classList.remove('green-border', 'red-border');
 
         gameLogic.iterateStations(true);
+        gameLogic.resetChances();
 
         textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
+        chancesDisplay.textContent = "chances: " + gameLogic.getChancesString();
         console.log(gameLogic.getCurrentStationName());
     });
 }
@@ -94,6 +111,8 @@ function guessLogic(guess) {
     }
 
     inputDisplay.classList.add('red-border');
+
+    gameLogic.setChances();
 }
 
 //start the game

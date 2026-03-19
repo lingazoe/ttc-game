@@ -178,13 +178,30 @@
     position: absolute;
 
     top: 60%;
-    left: 46%;
+    left: 35%;
 
     font-weight: 100;
     font-size: 25px;
     color: black;
 
     text-align: center;
+}
+
+/*-- CHANCES --*/
+
+.chances-counter {
+
+    position: absolute;
+
+    top: 60%;
+    left: 50%;
+
+    font-weight: 100;
+    font-size: 25px;
+    color: black;
+
+    text-align: center;
+
 }
 
 /*-- RESULTS --*/

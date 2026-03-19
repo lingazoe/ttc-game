@@ -5,6 +5,7 @@ class logic {
     #currentStation;
     #pattern;
     #score;
+    #chances;
 
     constructor(database) {
 
@@ -17,6 +18,7 @@ class logic {
         this.#currentStation = "1";
         this.#pattern = /[^a-zA-Z0-9\s\-\.\']/g;
         this.#score = 0;
+        this.#chances = 3;
     }
 
     //if station was guessed right or station was skipped;
@@ -63,6 +65,7 @@ class logic {
 
         this.#currentStation = "1";
         this.#score = 0;
+        this.#chances = 3;
     }
 
     //when 'show answer' is clicked
@@ -85,6 +88,26 @@ class logic {
     getScore() {
 
         return String(this.#score);
+    }
+
+    setChances() {
+
+        if (this.#chances > 0) {this.#chances--;}
+    }
+
+    getChancesString() {
+
+        return String(this.#chances);
+    }
+
+    checkChances() {
+
+        return (this.#chances > 1);
+    }
+
+    resetChances() {
+
+        this.#chances = 3;
     }
 
     isValid(input) {
