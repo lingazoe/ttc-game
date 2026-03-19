@@ -184,3 +184,9 @@
 }
 
 .hidden {display: none;}
+
+.disable {
+    
+    cursor: not-allowed;
+    pointer-events: none;
+}

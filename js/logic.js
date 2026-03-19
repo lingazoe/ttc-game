@@ -51,9 +51,6 @@ class logic {
         let fixedGuess = guess.toLowerCase().replace(/[.\'\-\s]/g, "");
         let fixedOriginal = original.replace(/\s/g, "");
 
-        console.log(fixedGuess);
-        console.log(fixedOriginal);
-
         return fixedOriginal === fixedGuess;
     }
 

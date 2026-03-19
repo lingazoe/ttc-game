@@ -41,8 +41,6 @@ async function start() {
 
     textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
 
-    console.log(gameLogic.getCurrentStationName());
-
     submitBTN.addEventListener('click', () => {
 
         const guess = inputDisplay.value;
@@ -56,7 +54,7 @@ async function start() {
         answerBTN.classList.add('hidden');
         nextBTN.classList.remove('hidden');
 
-        inputDisplay.ariaReadOnly = true;
+        inputDisplay.classList.add('disable');
     });
 
     nextBTN.addEventListener('click', () => {
@@ -64,7 +62,7 @@ async function start() {
         nextBTN.classList.add('hidden');
         answerBTN.classList.remove('hidden');
 
-        inputDisplay.ariaReadOnly = false;
+        inputDisplay.classList.remove('disable');
         inputDisplay.value = "";
         inputDisplay.classList.remove('green-border', 'red-border');
 
