@@ -67,6 +67,25 @@ async function start() {
 
         const guess = inputDisplay.value();
 
+        guessLogic(guess);
+    });
+
+    answerBTN.addEventListener('click', () => {
+
+
+        answerBTN.classList.add('hidden');
+        nextBTN.classList.remove('hidden');
+
+        inputDisplay.ariaReadOnly = true;
+    });
+
+    nextBTN.addEventListener('click', () => {
+
+        nextBTN.classList.add('hidden');
+        answerBTN.classList.remove('hidden');
+
+        inputDisplay.ariaReadOnly = false;
+        inputDisplay.classList.remove('green-border', 'red-border');
     });
 }
 
