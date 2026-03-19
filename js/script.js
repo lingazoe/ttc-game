@@ -55,6 +55,7 @@ async function start() {
         nextBTN.classList.remove('hidden');
 
         inputDisplay.classList.add('disable');
+        inputDisplay.classList.remove('green-border', 'red-border');
     });
 
     nextBTN.addEventListener('click', () => {
