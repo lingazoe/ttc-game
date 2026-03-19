@@ -45,32 +45,46 @@ async function start() {
 
     //--- CLICKING THE 'SUBMIT' BUTTON ---//
 
+    /*
+    
+    DELETE LATER?
+
+    if value in textbox is: empty, too long, too short, invalid hacks?
+    return false. else, return true...and continue on:
+
+    if value in textbox is equal to answer, return true.
+    else, return false.
+    
+    if false, show red. if true, show green.
+
+    once green is shown, disable submit btn and texting.
+
+    show the 'next' button.
+    
+    */
+
     submitBTN.addEventListener('click', () => {
 
-        const userGuess = inputDisplay.value;
-
-        const validGuess = gameLogic.isValid(userGuess);
-
-        const result = gameLogic.ifCorrect(gameLogic.getCurrentStationName(), userGuess);
-
-        console.log(result);
-
-        if (result) {
-
-            inputDisplay.classList.add('green-border');
-        }
-
-        else {
-
-            inputDisplay.classList.add('red-border');
-        }
-
-        //if (result) console.log(true);
-        //else console.log(false);
+        const guess = inputDisplay.value();
 
     });
+}
 
+function guessLogic(guess) {
 
+    if (gameLogic.isValid(guess) && gameLogic.ifCorrect(gameLogic.getCurrentStationName(), guess)) {
+
+        inputDisplay.classList.add('green-border');
+
+        answerBTN.classList.add('hidden');
+        nextBTN.classList.remove('hidden');
+
+        inputDisplay.ariaReadOnly = true;
+
+        return;
+    }
+
+    inputDisplay.classList.add('red-border');
 }
 
 //start the game
