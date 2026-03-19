@@ -6,6 +6,7 @@ const gameLogic = new logic(gameData);
 //initalize the necessary HTML Elements
 const textDisplay = document.querySelector(".scrambled");
 const inputDisplay = document.querySelector(".guess");
+const scoreDisplay = document.querySelector(".score-counter");
 const answerBTN = document.querySelector("#answer");
 const nextBTN = document.querySelector("#next");
 const submitBTN = document.querySelector("#checking");
@@ -41,6 +42,8 @@ async function start() {
 
     textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
 
+    console.log(gameLogic.getCurrentStationName());
+
     submitBTN.addEventListener('click', () => {
 
         const guess = inputDisplay.value;
@@ -70,6 +73,7 @@ async function start() {
         gameLogic.iterateStations(true);
 
         textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
+        console.log(gameLogic.getCurrentStationName());
     });
 }
 
@@ -83,6 +87,8 @@ function guessLogic(guess) {
         nextBTN.classList.remove('hidden');
 
         inputDisplay.ariaReadOnly = true;
+
+        scoreDisplay.textContent = "score: " + gameLogic.getScore();
 
         return;
     }

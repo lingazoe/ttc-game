@@ -4,6 +4,7 @@ class logic {
     #order;
     #currentStation;
     #pattern;
+    #score;
 
     constructor(database) {
 
@@ -15,6 +16,7 @@ class logic {
         this.#order = this.#data.getOrder;
         this.#currentStation = "1";
         this.#pattern = /[^a-zA-Z0-9\s\-\.\']/g;
+        this.#score = 0;
     }
 
     //if station was guessed right or station was skipped;
@@ -51,6 +53,8 @@ class logic {
         let fixedGuess = guess.toLowerCase().replace(/[.\'\-\s]/g, "");
         let fixedOriginal = original.replace(/\s/g, "");
 
+        this.setScore();
+
         return fixedOriginal === fixedGuess;
     }
 
@@ -58,6 +62,7 @@ class logic {
     reset() {
 
         this.#currentStation = "1";
+        this.#score = 0;
     }
 
     //when 'show answer' is clicked
@@ -70,6 +75,16 @@ class logic {
 
         return this.#data.getStationNameScrambled(String(this.#order[this.#currentStation]));
 
+    }
+
+    setScore() {
+
+        this.#score++;
+    }
+
+    getScore() {
+
+        return String(this.#score);
     }
 
     isValid(input) {

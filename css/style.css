@@ -171,7 +171,53 @@
     background-color: black;
 }
 
-/*-- JAVA SCRIPT STUFF --*/
+/*-- SCORE --*/
+
+.score-counter {
+
+    position: absolute;
+
+    top: 60%;
+    left: 46%;
+
+    font-weight: 100;
+    font-size: 25px;
+    color: black;
+
+    text-align: center;
+}
+
+/*-- RESULTS --*/
+
+.res-container {
+
+}
+
+.res-box {
+
+    position: absolute;
+
+    top: 40%;
+    left: 40%;
+
+    background-color: grey;
+    opacity: 50%;
+
+    width: 200px;
+    height: 100px;
+
+}
+
+.res-title {
+
+}
+
+.res-text {
+
+
+}
+
+/*-- JAVASCRIPT STUFF --*/
 
 .green-border {
 
