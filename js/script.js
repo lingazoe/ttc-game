@@ -1,6 +1,7 @@
 
 //initialize the data
 const gameData = new data();
+const gameLogic = new logic(gameData);
 
 //initalize the necessary HTML Elements
 const textDisplay = document.querySelector(".scrambled");
@@ -14,8 +15,7 @@ nextBTN.classList.add('hidden');
 
 async function start() {
 
-    //initialize game logic
-    const gameLogic = new logic(gameData);
+    //initialize
 
     //load the csv
     await gameData.load();
@@ -43,36 +43,16 @@ async function start() {
 
     console.log(gameLogic.getCurrentStationName());
 
-    //--- CLICKING THE 'SUBMIT' BUTTON ---//
-
-    /*
-    
-    DELETE LATER?
-
-    if value in textbox is: empty, too long, too short, invalid hacks?
-    return false. else, return true...and continue on:
-
-    if value in textbox is equal to answer, return true.
-    else, return false.
-    
-    if false, show red. if true, show green.
-
-    once green is shown, disable submit btn and texting.
-
-    show the 'next' button.
-    
-    */
-
     submitBTN.addEventListener('click', () => {
 
-        const guess = inputDisplay.value();
+        const guess = inputDisplay.value;
 
         guessLogic(guess);
     });
 
     answerBTN.addEventListener('click', () => {
 
-
+        textDisplay.textContent = gameLogic.getCurrentStationName();
         answerBTN.classList.add('hidden');
         nextBTN.classList.remove('hidden');
 
@@ -85,7 +65,12 @@ async function start() {
         answerBTN.classList.remove('hidden');
 
         inputDisplay.ariaReadOnly = false;
+        inputDisplay.value = "";
         inputDisplay.classList.remove('green-border', 'red-border');
+
+        gameLogic.iterateStations(true);
+
+        textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
     });
 }
 
