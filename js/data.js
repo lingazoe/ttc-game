@@ -6,7 +6,7 @@ class data {
     async load() {
 
         try {
-            const response = await fetch('ttc.csv');
+            const response = await fetch('./ttc.csv');
             const text = await response.text();
 
             const rows = text.split('\n');
