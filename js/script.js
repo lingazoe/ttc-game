@@ -44,7 +44,7 @@ async function start() {
 
     textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
 
-    console.log(gameLogic.getCurrentStationName());
+    //console.log(gameLogic.getCurrentStationName());
 
     submitBTN.addEventListener('click', () => {
 
@@ -90,7 +90,7 @@ async function start() {
 
         textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
         chancesDisplay.textContent = "chances: " + gameLogic.getChancesString();
-        console.log(gameLogic.getCurrentStationName());
+        //console.log(gameLogic.getCurrentStationName());
     });
 }
 
