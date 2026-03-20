@@ -6,8 +6,8 @@ const gameLogic = new logic(gameData);
 //initalize the necessary HTML Elements
 const textDisplay = document.querySelector(".scrambled");
 const inputDisplay = document.querySelector(".guess");
-const scoreDisplay = document.querySelector(".score-counter");
-const chancesDisplay = document.querySelector(".chances-counter");
+const scoreDisplay = document.querySelector("#score");
+const chancesDisplay = document.querySelector("#chances");
 const answerBTN = document.querySelector("#answer");
 const nextBTN = document.querySelector("#next");
 const submitBTN = document.querySelector("#checking");
