@@ -75,8 +75,7 @@ class data {
         const station = this.#stations.get(String(id));
 
         if (!station) {
-            console.log('something went wrong');
-            return "uh oh";
+            return;
         }
 
         return station.original;
@@ -87,8 +86,7 @@ class data {
         const station2 = this.#stations.get(String(id));
 
         if (!station2) {
-            console.log('something went wrong');
-            return "uh oh";
+            return;
         }
 
         return station2.scrambled;
