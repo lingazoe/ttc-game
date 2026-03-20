@@ -43,7 +43,7 @@ class logic {
 
             else {
 
-                this.reset();
+                return false;
             }
         }
     }
@@ -61,9 +61,10 @@ class logic {
     //for other purposes
     reset() {
 
+        this.getNewOrder();
         this.#currentStation = "1";
         this.#score = 0;
-        this.#chances = 3;
+        this.resetChances();
     }
 
     //when 'show answer' is clicked
@@ -115,5 +116,20 @@ class logic {
         if (this.#pattern.test(input)) return false;
 
         return true;
+    }
+
+    getNewOrder() {
+
+        for (let i = this.#order.length - 1; i > 0; i--) {
+
+            const j = Math.floor(Math.random() * (i + 1));
+
+            [this.#order[i], this.#order[j]] = [this.#order[j], this.#order[i]];
+        }
+    }
+
+    getIndex() {
+
+        return this.#currentStation;
     }
 }

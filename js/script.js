@@ -10,11 +10,13 @@ const scoreDisplay = document.querySelector("#score");
 const chancesDisplay = document.querySelector("#chances");
 const answerBTN = document.querySelector("#answer");
 const nextBTN = document.querySelector("#next");
-const submitBTN = document.querySelector("#checking");
+const endBTN = document.querySelector("#end");
+const statDisplay = document.querySelector(".res-container");
+const backgroundDisplay = document.querySelector(".res-background");
 
-
-//hide the [NEXT] button
 nextBTN.classList.add('hidden');
+statDisplay.classList.add('hidden');
+backgroundDisplay.classList.add('hidden');
 
 async function start() {
 
@@ -29,41 +31,33 @@ async function start() {
     //reset values just in case...
     gameLogic.reset();
 
-    /*
-
-    When the web page loads, user should be able to see:
-
-    A scrambled text. Each time the website is refreshed, the website generates another
-    scrambled text.
-    
-    The input text box, with a black border. Has a sample station inside for example.
-
-    Has 2 buttons: Submit and Show Answer.
-    
-    */
-
     textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
+    console.log(gameLogic.getIndex());
 
     //console.log(gameLogic.getCurrentStationName());
 
-    submitBTN.addEventListener('click', () => {
+    inputDisplay.addEventListener('keypress', (event) => {
 
-        if (!(gameLogic.checkChances())) {
+        if (event.key === 'Enter') {
 
-        textDisplay.textContent = gameLogic.getCurrentStationName();
-        answerBTN.classList.add('hidden');
-        nextBTN.classList.remove('hidden');
+            if (!(gameLogic.checkChances())) {
 
-        inputDisplay.classList.add('disable');
-        inputDisplay.classList.remove('green-border', 'red-border');
+                textDisplay.textContent = gameLogic.getCurrentStationName();
+                answerBTN.classList.add('hidden');
+                nextBTN.classList.remove('hidden');
 
-        }
+                inputDisplay.classList.add('disable');
+                inputDisplay.classList.remove('green-border', 'red-border');
 
-        const guess = inputDisplay.value;
+            }
 
-        guessLogic(guess);
+            const guess = inputDisplay.value;
 
-        chancesDisplay.textContent = "chances: " + gameLogic.getChancesString();
+            guessLogic(guess);
+
+            chancesDisplay.textContent = "chances: " + gameLogic.getChancesString();
+
+            }
     });
 
     answerBTN.addEventListener('click', () => {
@@ -85,11 +79,20 @@ async function start() {
         inputDisplay.value = "";
         inputDisplay.classList.remove('green-border', 'red-border');
 
-        gameLogic.iterateStations(true);
-        gameLogic.resetChances();
+        if (gameLogic.iterateStations(true)) {
 
-        textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
-        chancesDisplay.textContent = "chances: " + gameLogic.getChancesString();
+            console.log(gameLogic.getIndex());
+
+            gameLogic.resetChances();
+
+            textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
+            chancesDisplay.textContent = "chances: " + gameLogic.getChancesString();
+        }
+
+        else {
+
+            endRound();
+        }
         //console.log(gameLogic.getCurrentStationName());
     });
 }
@@ -115,6 +118,12 @@ function guessLogic(guess) {
     inputDisplay.classList.add('red-border');
 
     gameLogic.setChances();
+}
+
+function endRound() {
+
+    statDisplay.classList.remove('hidden');
+    backgroundDisplay.classList.remove('hidden');
 }
 
 //start the game

@@ -175,9 +175,8 @@
 
 .counter-container {
 
-    display: flex;
     justify-content: center;
-    text-align: center;
+    text-align: left;
 
     font-weight: 100;
     font-size: 25px;
@@ -186,36 +185,80 @@
     gap: 30px;
 
     margin-top: 20px;
+    margin-left: 420px;
 }
 
 /*-- RESULTS --*/
 
-.res-container {
+.res-background {
 
     position: absolute;
 
+    top: 0;
+    left: 0;
+
+    width: 2000px;
+    height: 2000px;
+
+    background-color: white;
+    opacity: 80%;
+}
+
+.res-container {
+
+    position: absolute;
     justify-content: center;
-    top: 40%;
-    left: 40%;
+    top: 20%;
+    left: 39%;
 }
 
 .res-box {
 
-    background-color: grey;
-    opacity: 50%;
+    background-color: black;
+    border-radius: 20px;
+    opacity: 95%;
 
-    width: 200px;
-    height: 100px;
-
+    width: 350px;
+    height: 450px;
 }
 
 .res-title {
 
+    position: absolute;
+
+    top: 10%;
+    left: 13%;
+    color: white;
+
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.res-line {
+
+    position: absolute;
+
+    top: 20%;
+    left: 10%;
+
+    width: 285px;
+
+    height: 2px;
+
+    background-color: white;
 }
 
 .res-text {
 
+    position: absolute;
 
+    top: 25%;
+    left: 10%;
+
+    font-size: 20px;
+    font-weight: 100;
+
+    color: white;
 }
 
 /*-- CREDS AND OTHERS --*/

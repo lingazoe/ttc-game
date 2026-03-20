@@ -14,19 +14,32 @@
     <input type="text" class="guess" id="inputs" placeholder="eg. Cedarvale">
 
     <div class="container">
-        <button class="buttons" id="checking">submit</button>
+        <button class="buttons" id="end">end round</button>
         <button class="buttons" id="answer">show answer</button>
         <button class="buttons" id="next">next</button>
     </div>
 
+    <div class="res-background"></div>
 
+    <div class="res-container">
+      <div class="res-box">
+        <div class="res-title">round finished!</div>
+        <div class="res-line"></div>
+        <div class="res-text">
+          score: n/a<br>
+          high score: n/a<br>
+          score rating: n/a<br>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="credits">this website is in progress! <br> This project uses Open Data provided by the City of Toronto under the <a href="https://open.toronto.ca/open-data-licence/">Open Government Licence – Toronto</a></div>
 
     <div class="counter-container">
       <div id="score">score: 0</div>
       <div id="chances">chances: 3</div>
     </div>
-
-    <div class="credits">this website is in progress! <br> This project uses Open Data provided by the City of Toronto under the <a href="https://open.toronto.ca/open-data-licence/">Open Government Licence – Toronto</a></div>
     
     <script src="js/data.js"></script>
     <script src="js/logic.js"></script>
