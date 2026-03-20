@@ -23,8 +23,6 @@ class data {
                     const name = cols[1].trim();
 
                     const scrambledName = name.replace(/\s+/g, '');
-
-                    console.log('oh its working!');
                     
                     this.#stations.set(id, {
                         original: name.toLowerCase(), 
