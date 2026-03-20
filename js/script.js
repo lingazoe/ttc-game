@@ -98,6 +98,8 @@ function guessLogic(guess) {
 
     if (gameLogic.isValid(guess) && gameLogic.ifCorrect(gameLogic.getCurrentStationName(), guess)) {
 
+        gameLogic.setScore();
+
         inputDisplay.classList.add('green-border');
 
         answerBTN.classList.add('hidden');

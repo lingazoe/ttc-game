@@ -192,14 +192,14 @@
 
 .res-container {
 
+    position: absolute;
+
+    justify-content: center;
+    top: 40%;
+    left: 40%;
 }
 
 .res-box {
-
-    position: absolute;
-
-    top: 40%;
-    left: 40%;
 
     background-color: grey;
     opacity: 50%;
