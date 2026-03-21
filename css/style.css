@@ -175,6 +175,11 @@
 
 .counter-container {
 
+    position: absolute;
+
+    top: 60%;
+    left: 29%;
+
     justify-content: center;
     text-align: left;
 
@@ -183,9 +188,6 @@
     color: black;
 
     gap: 30px;
-
-    margin-top: 20px;
-    margin-left: 420px;
 }
 
 /*-- RESULTS --*/
