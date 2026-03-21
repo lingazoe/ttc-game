@@ -276,6 +276,44 @@
     font-weight: 100;
 }
 
+/*-- ICONS --*/
+
+.img-container {
+
+    position: absolute;
+    display: flex;
+
+    top: 8%;
+    right: 4%;
+    gap: 20px;
+}
+
+img {
+
+    width: 30px;
+    height: auto;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 130px;
+    bottom: 100%;
+    left: 65%;
+    margin-left: -65px;
+}
+
+.tooltip:hover .tooltiptext {
+
+    visibility: visible;
+
+}
+
 /*-- JAVASCRIPT STUFF --*/
 
 .green-border {

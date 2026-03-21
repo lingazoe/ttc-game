@@ -132,4 +132,9 @@ class logic {
 
         return this.#currentStation;
     }
+
+    calcRating() {
+
+        return Math.round((this.getScore() / this.getIndex()) * 100);
+    }
 }

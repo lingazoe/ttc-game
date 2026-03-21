@@ -14,6 +14,10 @@ const endBTN = document.querySelector("#end");
 const statDisplay = document.querySelector(".res-container");
 const backgroundDisplay = document.querySelector(".res-background");
 
+const statScore = document.querySelector("#scores");
+const highScore = document.querySelector("#high-score");
+const scoreRate = document.querySelector("#score-rating");
+
 nextBTN.classList.add('hidden');
 statDisplay.classList.add('hidden');
 backgroundDisplay.classList.add('hidden');
@@ -60,6 +64,11 @@ async function start() {
             }
     });
 
+    endBTN.addEventListener('click', () => {
+
+        endRound();
+    });
+
     answerBTN.addEventListener('click', () => {
 
         textDisplay.textContent = gameLogic.getCurrentStationName();
@@ -80,8 +89,6 @@ async function start() {
         inputDisplay.classList.remove('green-border', 'red-border');
 
         if (gameLogic.iterateStations(true)) {
-
-            console.log(gameLogic.getIndex());
 
             gameLogic.resetChances();
 
@@ -124,6 +131,9 @@ function endRound() {
 
     statDisplay.classList.remove('hidden');
     backgroundDisplay.classList.remove('hidden');
+
+    statScore.textContent = "score: " + gameLogic.getScore();
+    scoreRate.textContent = "score rating: " + gameLogic.calcRating() + "%";
 }
 
 //start the game
