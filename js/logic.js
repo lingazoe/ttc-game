@@ -15,7 +15,7 @@ class logic {
     setup() {
 
         this.#order = this.#data.getOrder;
-        this.#currentStation = "1";
+        this.#currentStation = "0";
         this.#pattern = /[^a-zA-Z0-9\s\-\.\']/g;
         this.#score = 0;
         this.#chances = 3;
@@ -62,7 +62,7 @@ class logic {
     reset() {
 
         this.getNewOrder();
-        this.#currentStation = "1";
+        this.#currentStation = "0";
         this.#score = 0;
         this.resetChances();
     }
