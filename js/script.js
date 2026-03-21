@@ -36,7 +36,6 @@ async function start() {
     gameLogic.reset();
 
     textDisplay.textContent = gameLogic.getCurrentStationNameScrambled();
-    console.log(gameLogic.getIndex());
 
     //console.log(gameLogic.getCurrentStationName());
 
